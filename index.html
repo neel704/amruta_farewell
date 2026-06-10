@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,35 +16,36 @@
 }
 
 body{
-    font-family: 'Courier New', monospace;
+    font-family:'Courier New', monospace;
     min-height:100vh;
     overflow-x:hidden;
 
-    background:
-    linear-gradient(
-    135deg,
-    #ffd6e8,
-    #fff0c9,
-    #d6f0ff,
-    #ffe0f7);
+    background:linear-gradient(
+        135deg,
+        #ffd6e8,
+        #fff0c9,
+        #d6f0ff,
+        #ffe0f7
+    );
 
     text-align:center;
-    padding:40px;
+    padding:20px;
 }
 
 /* Floating Balloons */
 
 .balloon{
     position:fixed;
-    font-size:60px;
-    animation: float 8s infinite ease-in-out;
+    font-size:50px;
+    animation:float 8s infinite ease-in-out;
     opacity:.9;
+    z-index:1;
 }
 
-.b1{left:5%; top:10%;}
-.b2{right:8%; top:15%;}
-.b3{left:12%; bottom:10%;}
-.b4{right:12%; bottom:15%;}
+.b1{left:5%;top:10%;}
+.b2{right:8%;top:15%;}
+.b3{left:12%;bottom:10%;}
+.b4{right:12%;bottom:15%;}
 
 @keyframes float{
     0%{transform:translateY(0);}
@@ -55,7 +57,8 @@ body{
 
 .flower{
     position:fixed;
-    font-size:70px;
+    font-size:60px;
+    z-index:1;
 }
 
 .f1{top:20px;left:20px;}
@@ -63,24 +66,37 @@ body{
 .f3{bottom:20px;left:20px;}
 .f4{bottom:20px;right:20px;}
 
+/* Main Container */
+
+.container{
+    max-width:800px;
+    margin:0 auto;
+    position:relative;
+    z-index:2;
+}
+
 /* Title */
 
 h1{
-    margin-top:20px;
-    font-size:70px;
+    margin-top:40px;
     text-align:center;
+    line-height:1.1;
+
+    font-size:clamp(2.5rem, 8vw, 4.5rem);
 
     background:linear-gradient(
-    90deg,
-    #ff1493,
-    #8a2be2,
-    #ff4500);
+        90deg,
+        #ff1493,
+        #8a2be2,
+        #ff4500
+    );
 
     -webkit-background-clip:text;
-    color:transparent;
+    -webkit-text-fill-color:transparent;
 
     text-shadow:
-    0 0 20px rgba(255,255,255,.8);
+        0 0 10px rgba(255,255,255,.8),
+        0 0 20px rgba(255,105,180,.5);
 }
 
 /* Subtitle */
@@ -88,61 +104,61 @@ h1{
 .subtitle{
     margin-top:15px;
     color:#d63384;
-    font-size:24px;
+    font-size:22px;
     font-weight:bold;
 }
 
 /* Button */
 
 button{
-    margin-top:40px;
-    padding:18px 40px;
+    margin-top:35px;
+    padding:16px 35px;
 
     border:none;
     border-radius:50px;
 
     background:linear-gradient(
-    90deg,
-    #ff1493,
-    #ff69b4);
+        90deg,
+        #ff1493,
+        #ff69b4
+    );
 
     color:white;
-    font-size:24px;
+    font-size:22px;
+    font-weight:bold;
+
     cursor:pointer;
 
     box-shadow:
-    0 10px 30px rgba(255,20,147,.4);
+        0 10px 30px rgba(255,20,147,.4);
 
     transition:.3s;
 }
 
 button:hover{
-    transform:scale(1.08);
+    transform:scale(1.05);
 }
 
 /* Message Box */
 
 #message{
 
-    display:inline-block;
+    width:min(90%,700px);
 
-    width:auto;
-    max-width:85%;
-
-    margin:40px auto;
+    margin:35px auto;
 
     text-align:center;
 
     white-space:pre-wrap;
 
-    font-size:20px;
+    font-size:18px;
     line-height:1.8;
 
-    padding:25px 30px;
+    padding:25px;
 
     border-radius:25px;
 
-    background:rgba(255,255,255,.85);
+    background:rgba(255,255,255,.88);
 
     backdrop-filter:blur(10px);
 
@@ -157,7 +173,43 @@ button:hover{
 }
 
 @keyframes blink{
-    50%{opacity:0;}
+    50%{
+        opacity:0;
+    }
+}
+
+/* Mobile */
+
+@media(max-width:768px){
+
+    h1{
+        font-size:2.8rem;
+    }
+
+    .subtitle{
+        font-size:18px;
+    }
+
+    button{
+        width:90%;
+        max-width:320px;
+        font-size:18px;
+    }
+
+    #message{
+        width:95%;
+        padding:18px;
+        font-size:15px;
+        line-height:1.6;
+    }
+
+    .balloon{
+        font-size:35px;
+    }
+
+    .flower{
+        font-size:40px;
+    }
 }
 
 </style>
@@ -175,7 +227,12 @@ button:hover{
 <div class="flower f3">🌺</div>
 <div class="flower f4">🌷</div>
 
-<h1>Farewell, Amruta! 🚀</h1>
+<div class="container">
+
+<h1>
+🌸 Farewell,<br>
+Amruta! 🚀
+</h1>
 
 <div class="subtitle">
 💖 A special message is waiting for you... 💖
@@ -187,13 +244,13 @@ button:hover{
 
 <div id="message"></div>
 
+</div>
+
 <script>
 
 const text = `
 
-╔══════════════════════════════════════╗
-              Farewell, Amruta! 🚀       
-╚══════════════════════════════════════╝
+🌸 Farewell, Amruta! 🚀 🌸
 
 Thank you for being an amazing colleague and Mothii TAI ❤️
 
@@ -217,16 +274,16 @@ will always remain with us.
 
 ❤️ We will miss you, Amruta!
 
-----------------------------------------------
-System Status:
-Friendship      : ACTIVE
-Memories        : STORED FOREVER
-Success         : LOADING... ∞%
-Happiness       : LOADING... ∞%
-Future          : BRIGHT ✨
-----------------------------------------------
+✨ System Status ✨
 
-❤️ From Your Team 3DI ❤️ (3 Dimensional Immersive)
+Friendship : ACTIVE ❤️
+Memories : STORED FOREVER 📸
+Success : LOADING... ∞% 🚀
+Happiness : LOADING... ∞% 😊
+Future : BRIGHT ✨
+
+❤️ From Your Team 3DI ❤️
+(3 Dimensional Immersive)
 `;
 
 let started=false;
@@ -245,15 +302,17 @@ function startTyping(){
         if(i<text.length){
 
             msg.innerHTML=
-            text.substring(0,i+1)+
-            '<span class="cursor">|</span>';
+                text.substring(0,i+1) +
+                '<span class="cursor">|</span>';
 
             i++;
 
             setTimeout(type,25);
 
         }else{
+
             msg.innerHTML=text;
+
         }
     }
 
@@ -264,3 +323,4 @@ function startTyping(){
 
 </body>
 </html>
+```

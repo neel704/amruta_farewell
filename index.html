@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Farewell Amruta 🚀</title>
+
+<style>
+    body {
+        font-family: Consolas, monospace;
+        background: #0d1117;
+        color: #c9d1d9;
+        text-align: center;
+        padding: 50px;
+    }
+
+    h1 {
+        color: #58a6ff;
+    }
+
+    button {
+        padding: 15px 30px;
+        font-size: 18px;
+        cursor: pointer;
+        border: none;
+        border-radius: 8px;
+        background: #238636;
+        color: white;
+    }
+
+    button:hover {
+        transform: scale(1.05);
+    }
+
+    #message {
+        margin-top: 30px;
+        white-space: pre-line;
+        text-align: left;
+        max-width: 800px;
+        margin-left: auto;
+        margin-right: auto;
+        font-size: 18px;
+        line-height: 1.8;
+    }
+
+    .cursor {
+        display: inline-block;
+        width: 10px;
+        animation: blink 0.8s infinite;
+    }
+
+    @keyframes blink {
+        50% { opacity: 0; }
+    }
+</style>
+</head>
+<body>
+
+<h1>🚀 Farewell Amruta</h1>
+
+<p>A special message is waiting...</p>
+
+<button onclick="startTyping()">
+    🔓 Unlock Farewell Message
+</button>
+
+<div id="message"></div>
+
+<script>
+
+const text = `
+╔══════════════════════════════════════════════╗
+║            Farewell, Amruta! 🚀             ║
+╚══════════════════════════════════════════════╝
+
+Thank you for being an amazing colleague and friend.
+
+Your hard work, positivity, and dedication
+have inspired everyone around you and made
+a lasting impact on our team.
+
+As you begin this exciting new chapter,
+may success follow you wherever you go.
+
+✔ May you achieve all your goals.
+✔ May you create wonderful memories.
+✔ May you embrace new opportunities.
+✔ May you reach even greater heights in your career.
+
+Best of luck for your new journey!
+
+You are leaving this company,
+but the memories and friendships you created
+will always remain with us.
+
+❤️ We will miss you, Amruta!
+
+----------------------------------------------
+System Status:
+Friendship      : ACTIVE
+Memories        : STORED FOREVER
+Success         : LOADING... ∞%
+Happiness       : LOADING... ∞%
+Future          : BRIGHT ✨
+----------------------------------------------
+
+❤️ From Your Team
+`;
+
+let started = false;
+
+function startTyping() {
+
+    if (started) return;
+    started = true;
+
+    const msg = document.getElementById("message");
+    let i = 0;
+
+    function type() {
+        if (i < text.length) {
+            msg.innerHTML =
+                text.substring(0, i + 1) +
+                '<span class="cursor">|</span>';
+            i++;
+            setTimeout(type, 35);
+        } else {
+            msg.innerHTML = text;
+        }
+    }
+
+    type();
+}
+</script>
+
+</body>
+</html>
